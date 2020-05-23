@@ -1,5 +1,5 @@
 import React from 'react';
-
+import GifImages from './components/GifImages'
 import './App.css';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
        
         <p>
-        
+        <GifImages />
         </p>
         
       </header>
