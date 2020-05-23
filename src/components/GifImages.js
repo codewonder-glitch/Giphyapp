@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Carousel from 'react-bootstrap/Carousel'
+
 import './styles/Gif.scss'
 
 export default class GifImages extends Component {
@@ -20,8 +20,9 @@ htmlArray:[]
     }
 
     async callApi() {
+      var apikey=process.env.REACT_APP_API_KEY
         console.log(process.env.REACT_APP_API_KEY)
-        axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.giphy.com/v1/gifs/search?api_key=8tuRAlgbK4rykSIbwcmzljWJT1s35yt4&q="cheese"`,{
+        axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.giphy.com/v1/gifs/search?api_key=`+apikey+`&q="cheese"`,{
         // axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.giphy.com/v1/stickers/trending?api_key=8tuRAlgbK4rykSIbwcmzljWJT1s35yt4`, {
            
        
@@ -76,7 +77,9 @@ render(){
 
   return (
    <React.Fragment>
+     <div className="container">
      {this.state.htmlArray}
+     </div>
        {/* <div style={{ margin: "100px" , 'display' : 'flex', justifyContent: "center"}}>
        <Carousel className="carousel-container" style={{'height':"500px", 'width' : "700px" , 
                             }} >
