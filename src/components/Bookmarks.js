@@ -12,8 +12,11 @@ src:'',
 htmlArray:[]
         }
     }
+    componentDidMount=()=>{
+        this.getApi()
+    }
 
-    componentDidMount=async()=> {
+    getApi=async()=> {
         var htmlArr=[]
         await fetch('/giphy/v1/gifs', {
             method:'GET',
@@ -27,8 +30,11 @@ htmlArray:[]
             console.log(data)
             htmlArr= data.map(dt=>{
 return(
-
+<div>
     <img src={dt.gifUrl}/>
+    <button value={dt.gifID} onClick={this.gifDelete}> Delete</button>
+    <button value={dt.gifID} onClick={this.gifUpdate}> Update</button>
+    </div>
 )
                 
   }  )    
@@ -38,10 +44,31 @@ return(
             )
     }
 
+    gifDelete=async(e)=>{
+        e.preventDefault()
+console.log(e.target.value)
+        await fetch('/giphy/v1/gifs/'+e.target.value, {
+            method: 'DELETE',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            }
+          })
+    //       .then( => {
+    //    // let updatedEmployees = [...this.state.employees].filter(i => i.id !== id);
+    //        // this.setState({employees: updatedEmployees});
+    //       });
+          this.getApi()
+
+    }
+    gifUpdate=(e)=>{
+        e.preventDefault()
+    }
+
     render(){
 
         return(
-           <div>
+           <div className="GridContainer">
 {this.state.htmlArray}
            </div> 
         )

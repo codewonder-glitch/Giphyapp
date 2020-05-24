@@ -102,7 +102,7 @@ render(){
   return (
   
     <React.Fragment>
-  
+  <div className="gridContainer">
   {this.state.htmlArray}
        {/* <div style={{ margin: "100px" , 'display' : 'flex', justifyContent: "center"}}>
        <Carousel className="carousel-container" style={{'height':"500px", 'width' : "700px" , 
@@ -123,6 +123,7 @@ render(){
       
      </Carousel>
     </div>  */}
+    </div>
     </React.Fragment> 
   )
 }
