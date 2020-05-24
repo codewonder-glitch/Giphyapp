@@ -81,9 +81,9 @@ searchKey:''
         console.log(this.props.searchKey)
         var gifObj={ }
          gifObj={
-          GifName: this.props.searchKey,
-          GifCategory: this.props.searchKey,
-          GifUrl: e.target.value
+          gifName: this.props.searchKey,
+          gifCategory: this.props.searchKey,
+          gifUrl: e.target.value
 
         }
         console.log(gifObj["GifName"])
