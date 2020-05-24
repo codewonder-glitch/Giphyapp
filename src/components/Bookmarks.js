@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {  BrowserRouter as Router, Route, Link ,Switch} from "react-router-dom";
+// import $ from 'jquery';
+
 
 import './styles/Gif.scss'
 
@@ -9,7 +11,9 @@ export default class Bookmarks extends Component {
         super(props);
         this.state={
 src:'',
-htmlArray:[]
+filePath:'',
+htmlArray:[],
+urlChange:''
         }
     }
     componentDidMount=()=>{
@@ -63,14 +67,66 @@ console.log(e.target.value)
     }
     gifUpdate=(e)=>{
         e.preventDefault()
+         document.getElementsByClassName('modal')[0].style.display='flex'
+         this.setState({urlChange:e.target.value})
     }
+    handleImageChange=(e)=>{
+      e.preventDefault()
+      this.setState({filePath:e.target.value})
+
+      // let reader = new FileReader();
+      // let file = e.target.files[0];
+  
+      // reader.onloadend = () => {
+      //   this.setState({
+      //     file: file,
+         
+      //   });
+      // }
+  
+      // reader.readAsDataURL(file)
+
+    }
+    handleSubmit=(e)=>{
+      e.preventDefault()
+console.log(this.state.urlChange)
+this.updateDb()
+document.getElementsByClassName('modal')[0].style.display='none'
+alert("Image Uploaded")
+    }
+
+    updateDb=async()=>{
+      await fetch('/giphy/v1/gifs/'+this.state.urlChange, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({gifUrl:this.state.filePath})
+
+
+        }  )
+        this.getApi()
+    
+    
+  }
 
     render(){
 
         return(
+          <div className="Container">
            <div className="GridContainer">
+
 {this.state.htmlArray}
            </div> 
+           <div className="modal">
+           <form onSubmit={this._handleSubmit}>
+             <h1>Please select file to update image</h1>
+                     <input type="text" onChange={this.handleImageChange} />
+                     <button type="submit" onClick={this.handleSubmit}>Upload Image</button>
+                   </form>
+                   </div>
+                   </div>
         )
     }
 }

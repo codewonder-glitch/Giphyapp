@@ -9,3 +9,32 @@ img{
     // grid-template-rows: 150px 150px 150px;
     // grid-template-columns: repeat(4, 1fr);
 }
+
+// Bookmark
+.Container{
+    .GridContainer{
+        background-color: whitesmoke;
+        display: Grid;
+        grid-template-columns: auto auto auto auto;
+        img{
+            width:400px;
+           height:400px;
+        }
+    
+    }
+    .modal{
+        position:fixed;
+        // display: flex;
+        flex-direction: column;
+        margin: 250px auto;
+        background-color: burlywood;
+        width:50%;
+        height:25%;
+        top:-60px;
+        left:360px;
+        // background-color: whitesmoke;
+         display: none;
+        //  transform: translate(-50%,-50%);
+    }
+
+}
