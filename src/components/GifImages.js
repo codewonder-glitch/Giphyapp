@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Bookmarks from'./Bookmarks'
 import './styles/Gif.scss'
 
 export default class GifImages extends Component {
@@ -8,21 +9,37 @@ export default class GifImages extends Component {
         super(props);
         this.state={
 src:'',
-htmlArray:[]
+htmlArray:[],
+searchKey:''
         }
     }
 
     componentDidMount() {
-        
-          this.callApi();
-        
+    
+     
+       if(this.props.searchKey!=undefined)
+     this.callApi();   
         
     }
 
+    componentDidUpdate(prevProps) {
+      console.log(this.props.searchKey)
+      if (this.props.searchKey!=prevProps.searchKey)
+       {
+         
+         console.log(this.props.searchKey)
+           this.callApi()
+       }
+           }
+    
+    
+
     async callApi() {
+      // this.setState({searchKey:this.props.searchKey})
+      var searchKey=this.props.searchKey
       var apikey=process.env.REACT_APP_API_KEY
         console.log(process.env.REACT_APP_API_KEY)
-        axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.giphy.com/v1/gifs/search?api_key=`+apikey+`&q="cheese"`,{
+        axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.giphy.com/v1/gifs/search?api_key=`+apikey+`&q=`+searchKey,{
         // axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.giphy.com/v1/stickers/trending?api_key=8tuRAlgbK4rykSIbwcmzljWJT1s35yt4`, {
            
        
@@ -37,9 +54,10 @@ htmlArray:[]
        
       //       let src;
         let htmlArray = res.data.data.map(resObj => 
-       
+          <div>
+       <button value={resObj.images.downsized.url} onClick={this.saveImage} >"Bookmark"</button>
       <img src={resObj.images.downsized.url} />
-            
+      </div>
       
         );
         this.setState({htmlArray:htmlArray})
@@ -57,29 +75,35 @@ htmlArray:[]
         
       }
 
-      Save=()=>{
-        fetch('/niecey_api/v1/employees/6', {
+      
+
+      saveImage=(e)=>{
+        console.log(this.props.searchKey)
+        var gifObj={ }
+         gifObj={
+          GifName: this.props.searchKey,
+          GifCategory: this.props.searchKey,
+          GifUrl: e.target.value
+
+        }
+        console.log(gifObj["GifName"])
+        fetch('/giphy/v1/gifs', {
           method: 'POST',
          //  method:'PUT',
          headers: {
            'Accept': 'application/json',
            'Content-Type': 'application/json'
          },
-         body: JSON.stringify({
-          "firstName": "visa",
-          "lastName": "selvam",
-          "email": "ruvayagil@gmail.com"
-          
-          })
+         body: JSON.stringify( gifObj )
        });
       }
 render(){
 
   return (
-   <React.Fragment>
-     <div className="container">
-     {this.state.htmlArray}
-     </div>
+  
+    <React.Fragment>
+  
+  {this.state.htmlArray}
        {/* <div style={{ margin: "100px" , 'display' : 'flex', justifyContent: "center"}}>
        <Carousel className="carousel-container" style={{'height':"500px", 'width' : "700px" , 
                             }} >
