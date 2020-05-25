@@ -1,6 +1,8 @@
 
 .gridContainer{
+    background-color: transparent;
 img{
+    margin: #111;
     width:400px;
    height:400px;
 }
@@ -17,7 +19,8 @@ img{
         display: Grid;
         grid-template-columns: auto auto auto auto;
         img{
-            width:400px;
+            margin:3px solid transparent;
+            width:300px;
            height:400px;
         }
     

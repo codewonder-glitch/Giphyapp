@@ -59,19 +59,19 @@ export default class RouterCollection extends Component {
     }
 }
 
-const Entertainment=(props)=>{
-    // switch (props.name){
-    // case Entertainment:
+// const Entertainment=(props)=>{
+//     // switch (props.name){
+//     // case Entertainment:
     
     
-    return(
-    <div>
-      {props.data}
-    </div>
+//     return(
+//     <div>
+//       {props.data}
+//     </div>
     
-    )
+//     )
     
     
-    }
+//     }
     
     
