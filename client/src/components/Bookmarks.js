@@ -108,7 +108,10 @@ alert("Image Uploaded")
         }  )
         this.getApi()
     
-    
+  }
+  //https://coursework.vschool.io/deploying-with-surge/
+  closeModal=()=>{
+
   }
 
     render(){
@@ -124,6 +127,7 @@ alert("Image Uploaded")
              <h1>Please select file to update image</h1>
                      <input type="text" onChange={this.handleImageChange} />
                      <button type="submit" onClick={this.handleSubmit}>Upload Image</button>
+                     <button type="submit" onClick={this.closeModal}>X</button>
                    </form>
                    </div>
                    </div>
