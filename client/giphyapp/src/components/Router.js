@@ -10,14 +10,31 @@ export default class RouterCollection extends Component {
         super(props);
         this.state={
         searchKey:'',
-        srch:''
+        srch:'',
+        count:''
         }
     }
    
 
     componentDidMount() {
+        this.getApi();
     }
 
+
+    getApi=async()=> {
+        var htmlArr=[]
+        await fetch('/giphy/v1/visitor/count', {
+            method:'GET',
+           headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json'
+           }
+           }).then(response=> response.json()) .then(data=>{
+            this.setState({count:data})
+           }).catch((err) => 
+           console.log ('error')
+           )
+   }
     handleChange=(e)=>{
         e.preventDefault()
         this.setState({srch:e.target.value})
@@ -30,16 +47,25 @@ export default class RouterCollection extends Component {
 
 <React.Fragment>
      <div className="container">
-     <div>
-       <input type="text" onChange={this.handleChange}></input>
+ 
       <Router>
-         <div className="Route">
-         <Link to="/Search" >  <button type="submit" onClick={(e)=>this.setState({searchKey:this.state.srch})}>Submit</button ></Link>
-    <Link to="/Reactions" > Reactions</Link>
-  <Link to="/Sports">Sports</Link>
-   <Link to="/Entertainment">Entertainment</Link>
-   <Link to="/Artists">Artists</Link>
-   <Link to="/Bookmarks">Bookmarks</Link>
+     
+         <div className="route">
+        <div className="flex">
+        <h1>Visit#:{this.state.count}</h1>
+            <h1>Giphy</h1>
+    <Link className="link" to="/Reactions" > Reactions</Link>
+  <Link className="link" to="/Sports">Sports</Link>
+   <Link className="link" to="/Entertainment">Entertainment</Link>
+   <Link className="link" to="/Artists">Artists</Link>
+   <Link className="link" to="/Bookmarks">Bookmarks</Link>
+   </div>
+   
+   <div>
+       <input type="text" onChange={this.handleChange}></input>
+   <Link to="/Search" >  <button type="submit" onClick={(e)=>this.setState({searchKey:this.state.srch})}>Submit</button ></Link>
+  
+   </div>
    </div>
     <Switch>
     <Route exact path="/Search" ><GifImages searchKey={this.state.searchKey} /> </Route> 
@@ -51,10 +77,10 @@ export default class RouterCollection extends Component {
     </Switch>
     </Router> 
   </div>  
-
-     </div>
+           
+   
      </React.Fragment> 
-           </div> 
+            </div>
         )
     }
 }

@@ -28,13 +28,12 @@ urlChange:''
              'Accept': 'application/json',
              'Content-Type': 'application/json'
            }
-           
-         }).then(response=> response.json()) .then(data=>{
+           }).then(response=> response.json()) .then(data=>{
            
             console.log(data)
             htmlArr= data.map(dt=>{
 return(
-<div>
+<div className="imageContainer">
     <img src={dt.gifUrl}/>
     <button value={dt.gifID} onClick={this.gifDelete}> Delete</button>
     <button value={dt.gifID} onClick={this.gifUpdate}> Update</button>
