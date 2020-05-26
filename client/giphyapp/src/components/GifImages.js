@@ -53,11 +53,11 @@ searchKey:''
             // this.setState({img:res.data.data[0].images.downsized.url})
        
       //       let src;
-        let htmlArray = res.data.data.map(resObj => 
+        let htmlArray = res.data.data.map((resObj,i) => 
           <div className="imagecontainer">
      
       <img src={resObj.images.downsized.url} />
-      <button value={resObj.images.downsized.url} onClick={this.saveImage} >Bookmark</button>
+      <button id={i} value={resObj.images.downsized.url} onClick={this.saveImage} >Bookmark</button>
       </div>
       
         );
@@ -97,6 +97,7 @@ searchKey:''
          },
          body: JSON.stringify( gifObj )
        });
+       document.getElementById(e.target.id).disabled='true'
       }
 render(){
 

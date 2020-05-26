@@ -60,11 +60,12 @@ export default class RouterCollection extends Component {
    <Link className="link" to="/Artists">Artists</Link>
    <Link className="link" to="/Bookmarks">Bookmarks</Link>
    <h1 className="visitcount">Visit#:{this.state.count}</h1>
+   <h1 className="username">{this.props.username}</h1>
    </div>
    
    <div className="searchdiv">
-       <input type="text" onChange={this.handleChange}></input>
-   <Link to="/Search" >  <button type="submit" onClick={(e)=>this.setState({searchKey:this.state.srch})}>Submit</button ></Link>
+       <input type="text" placeholder='Please write here' onChange={this.handleChange}></input>
+   <Link to="/Search" >  <button type="submit" onClick={(e)=>this.setState({searchKey:this.state.srch})}>Search</button ></Link>
   
    </div>
    </div>

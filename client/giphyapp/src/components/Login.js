@@ -100,7 +100,7 @@ render(){
 </form>}
 
       {this.state.gotopage==true &&
-        <RouterCollection/>}
+        <RouterCollection username={this.state.username}/>}
      
         
 
