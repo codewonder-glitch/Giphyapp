@@ -109,8 +109,9 @@ alert("Image Uploaded")
     
   }
   //https://coursework.vschool.io/deploying-with-surge/
-  closeModal=()=>{
-
+  closeModal=(e)=>{
+    e.preventDefault()
+    document.getElementsByClassName('modal')[0].style.display='none';
   }
 
     render(){
@@ -125,8 +126,8 @@ alert("Image Uploaded")
            <form onSubmit={this._handleSubmit}>
              <h1>Please select file to update image</h1>
                      <input type="text" onChange={this.handleImageChange} />
-                     <button type="submit" onClick={this.handleSubmit}>Upload Image</button>
-                     <button type="submit" onClick={this.closeModal}>X</button>
+                     <button className="modalbtn" type="submit" onClick={this.handleSubmit}>Upload Image</button>
+                     <button className="closebtn" type="submit" onClick={this.closeModal}>X</button>
                    </form>
                    </div>
                    </div>

@@ -94,7 +94,7 @@ render(){
 
     <div className="clearfix">
       {/* <button type="button" class="cancelbtn">Cancel</button> */}
-      <button type="submit" className="signupbtn" onClick={this.login}>Sign In</button>
+      <button type="submit" className="signinbtn" onClick={this.login}>Sign In</button>
     </div>
   </div>
 </form>}
