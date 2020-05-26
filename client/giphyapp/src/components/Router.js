@@ -52,13 +52,14 @@ export default class RouterCollection extends Component {
      
          <div className="route">
         <div className="flex">
-        <h1>Visit#:{this.state.count}</h1>
+        
             <h1>Giphy</h1>
     <Link className="link" to="/Reactions" > Reactions</Link>
   <Link className="link" to="/Sports">Sports</Link>
    <Link className="link" to="/Entertainment">Entertainment</Link>
    <Link className="link" to="/Artists">Artists</Link>
    <Link className="link" to="/Bookmarks">Bookmarks</Link>
+   <h1 className="visitcount">Visit#:{this.state.count}</h1>
    </div>
    
    <div>

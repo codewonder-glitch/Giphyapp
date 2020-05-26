@@ -81,7 +81,7 @@ render(){
   
     <hr />
 
-    <label for="email"><b>Email</b></label>
+    <label for="email"><b>UserName</b></label>
     <input type="text" placeholder="Enter Email" name="username" required onChange={this.textChange}/>
 
     <label for="psw"><b>Password</b></label>
