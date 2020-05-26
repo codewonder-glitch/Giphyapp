@@ -1,5 +1,6 @@
 import React from 'react';
 import RouterCollection from './components/Router'
+import Login from './components/Login'
 import './App.css';
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
    
        
       
-        <RouterCollection/>
+        <Login />
      
         
 
