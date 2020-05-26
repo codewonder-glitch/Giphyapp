@@ -55,8 +55,9 @@ searchKey:''
       //       let src;
         let htmlArray = res.data.data.map(resObj => 
           <div className="imagecontainer">
-       <button value={resObj.images.downsized.url} onClick={this.saveImage} >Bookmark</button>
+     
       <img src={resObj.images.downsized.url} />
+      <button value={resObj.images.downsized.url} onClick={this.saveImage} >Bookmark</button>
       </div>
       
         );
@@ -104,25 +105,8 @@ render(){
     <React.Fragment>
   <div className="gridContainer">
   {this.state.htmlArray}
-       {/* <div style={{ margin: "100px" , 'display' : 'flex', justifyContent: "center"}}>
-       <Carousel className="carousel-container" style={{'height':"500px", 'width' : "700px" , 
-                            }} >
-    { this.state.htmlArray.map(resObj =>{
-      return(
-       <Carousel.Item className="carousel-item">
-                        <img style={{'height':"500px" , 'width': "570px", 'padding' : '40px', 'marginLeft' : '65px'}} 
-                        
-                        src={resObj.images.downsized.url}
-                        alt="First slide"  
-                        />  </Carousel.Item  > 
       
-       ) }              
-      )
-       }
      
-      
-     </Carousel>
-    </div>  */}
     </div>
     </React.Fragment> 
   )
