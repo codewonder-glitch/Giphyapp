@@ -31,12 +31,29 @@ justify-content: center;
             font-size: large;
             font-family: Impact;
              padding :8px 6px;
+             padding-bottom: 0px;
             // margin: auto auto;
            
         }
         .link:hover{
             background: linear-gradient(to bottom, #0020 , #b19cd9);
         }
+    }
+
+    .searchdiv{
+        position: absolute;
+top:70px;
+left:500px;input{
+    width:400px;
+    height:30px;
+}
+button{
+    background: linear-gradient(to bottom, rgba(25, 25, 134, 0) , purple); 
+    font-family: cursive;  
+    color: white;
+    font-size: larger;
+}
+
     }
 
 }
@@ -68,8 +85,8 @@ img{
     color:white;
     font-size: large;
     font-weight: bold;
-    width:80px;
-    height:30px;
+    width:90px;
+    height:40px;
     margin: 10px 40px;
     background: linear-gradient(to bottom, rgba(25, 25, 134, 0) , purple);
      box-sizing: border-box;

@@ -54,15 +54,15 @@ export default class RouterCollection extends Component {
         <div className="flex">
         
             <h1>Giphy</h1>
-    <Link className="link" to="/Reactions" > Reactions</Link>
+    <Link className="link" to="/" > Reactions</Link>
   <Link className="link" to="/Sports">Sports</Link>
-   <Link className="link" to="/Entertainment">Entertainment</Link>
+   <Link className="link" to="/Fun">Fun</Link>
    <Link className="link" to="/Artists">Artists</Link>
    <Link className="link" to="/Bookmarks">Bookmarks</Link>
    <h1 className="visitcount">Visit#:{this.state.count}</h1>
    </div>
    
-   <div>
+   <div className="searchdiv">
        <input type="text" onChange={this.handleChange}></input>
    <Link to="/Search" >  <button type="submit" onClick={(e)=>this.setState({searchKey:this.state.srch})}>Submit</button ></Link>
   
@@ -70,9 +70,9 @@ export default class RouterCollection extends Component {
    </div>
     <Switch>
     <Route exact path="/Search" ><GifImages searchKey={this.state.searchKey} /> </Route> 
-    <Route exact path="/Reactions" ><GifImages searchKey="Reactions" /> </Route>  
+    <Route exact path="/" ><GifImages searchKey="Reactions" /> </Route>  
     <Route exact path="/Sports"><GifImages searchKey="Sports" /> </Route> 
-    <Route exact path="/Entertainment" ><GifImages searchKey="Entertainment" /></Route>  
+    <Route exact path="/Fun" ><GifImages searchKey="fun" /></Route>  
     <Route exact path="/Artists"><GifImages searchKey="Artists" /> </Route> 
         <Route exact path="/Bookmarks"><Bookmarks /></Route>  
     </Switch>
