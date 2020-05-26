@@ -8,7 +8,8 @@ class Login extends Component{
         super(props);
         this.state={
 username:'',
-password:''
+password:'',
+gotopage:false
         }
     }
 
@@ -28,10 +29,21 @@ password:''
             "userName":this.state.username,
     "userPassword":this.state.password
           } )}) .then((res)=>{
-
+            
             return res.text()})
+        
+        
             .then((text)=>{
                 console.log(text);
+                var arr =  text.split(':')
+            console.log(arr[1])
+if(arr[1]=="true}"){
+this.setState({gotopage:true})
+// document.getElementsByClassName("App")[0].style.display="none"
+}
+else
+alert("login failed")
+
             })
     
     
@@ -58,9 +70,12 @@ password:''
 
 render(){
   return (
-    <div className="App">
+      <React.Fragment>
+              <div className="App">
+    { this.state.gotopage ==false &&
+        
    
-   <form style={{border:"1px solid #ccc"}}>
+   <form style={{border:"4px solid purple"}}>
   <div className="container">
     <h1>Sign In</h1>
   
@@ -82,14 +97,16 @@ render(){
       <button type="submit" className="signupbtn" onClick={this.login}>Sign In</button>
     </div>
   </div>
-</form>
+</form>}
 
-      
-        {/* <RouterCollection/> */}
+      {this.state.gotopage==true &&
+        <RouterCollection/>}
      
         
 
     </div>
+    </React.Fragment>
+
   );
 }
 }

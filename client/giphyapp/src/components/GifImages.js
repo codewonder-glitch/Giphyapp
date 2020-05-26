@@ -55,7 +55,7 @@ searchKey:''
       //       let src;
         let htmlArray = res.data.data.map(resObj => 
           <div className="imagecontainer">
-       <button value={resObj.images.downsized.url} onClick={this.saveImage} >"Bookmark"</button>
+       <button value={resObj.images.downsized.url} onClick={this.saveImage} >Bookmark</button>
       <img src={resObj.images.downsized.url} />
       </div>
       
