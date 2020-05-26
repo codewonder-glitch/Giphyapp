@@ -125,7 +125,7 @@ alert("Image Uploaded")
            <div className="modal">
            <form onSubmit={this._handleSubmit}>
              <h1>Please select file to update image</h1>
-                     <input type="text" onChange={this.handleImageChange} />
+                     <input id="url" type="text" onChange={this.handleImageChange} />
                      <button className="modalbtn" type="submit" onClick={this.handleSubmit}>Upload Image</button>
                      <button className="closebtn" type="submit" onClick={this.closeModal}>X</button>
                    </form>

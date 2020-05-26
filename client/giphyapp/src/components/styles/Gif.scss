@@ -105,11 +105,11 @@ background: linear-gradient(to bottom, rgba(25, 25, 134, 0) , purple);
          display: none;
         flex-direction: column;
         margin: 250px auto;
-        border: 5px solid black;
+        border: 5px solid purple;
         box-sizing: border-box;
         box-shadow: 0px 4px 7px pink;
         width:50%;
-        height:25%;
+        height:60%;
         top:-60px;
         left:360px;
        background-color:whitesmoke;
@@ -119,14 +119,33 @@ background: linear-gradient(to bottom, rgba(25, 25, 134, 0) , purple);
          
         //  transform: translate(-50%,-50%);
         h1{
+            position: absolute;
+            top:-90px;
+            left:-30px;
 
             background: linear-gradient(to bottom, #0020 , turquoise);
         }
         .closebtn{
-            background: linear-gradient(to bottom, rgba(25, 25, 134, 0) , purple);   
+            background: linear-gradient(to bottom, rgba(25, 25, 134, 0) , purple); 
+            position:absolute;
+            top:-70px;
+            left:-150px; 
+            font-size: x-large; 
         }
         .modalbtn{
             background: linear-gradient(to bottom, rgba(25, 25, 134, 0) , purple);
+            position:absolute;
+            top:200px;
+            left:120px; 
+            font-size: x-large; 
+            font-family:cursive;
+        }
+        #url{
+            position:absolute;
+            background-color: white;
+            top:70px;
+            width:500px;
+            left:-60px; 
         }
     }
 
