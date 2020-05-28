@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "core-util-is": "^1.0.2",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
@@ -24,7 +25,7 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build && mv build/index.html build/200.html && surge build"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "https://glacial-woodland-21756.herokuapp.com/",
   "eslintConfig": {
     "extends": "react-app"
   },
