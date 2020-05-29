@@ -23,7 +23,7 @@ export default class RouterCollection extends Component {
 
     getApi=async()=> {
         var htmlArr=[]
-        await fetch('/giphy/v1/visitor/count', {
+        await fetch(`${'https://cors-anywhere.herokuapp.com/'}'https://glacial-woodland-21756.herokuapp.com/giphy/v1/visitor/count`, {
             method:'GET',
            headers: {
              'Accept': 'application/json',
@@ -32,7 +32,7 @@ export default class RouterCollection extends Component {
            }).then(response=> response.json()) .then(data=>{
             this.setState({count:data})
            }).catch((err) => 
-           console.log ('error')
+           console.log (err)
            )
    }
     handleChange=(e)=>{
