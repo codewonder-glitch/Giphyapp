@@ -50,7 +50,7 @@ return(
     gifDelete=async(e)=>{
         e.preventDefault()
 console.log(e.target.value)
-        await fetch('/giphy/v1/gifs/'+e.target.value, {
+        await fetch('https://glacial-woodland-21756.herokuapp.com/giphy/v1/gifs/'+e.target.value, {
             method: 'DELETE',
             headers: {
               'Accept': 'application/json',
@@ -95,7 +95,7 @@ alert("Image Uploaded")
     }
 
     updateDb=async()=>{
-      await fetch('/giphy/v1/gifs/'+this.state.urlChange, {
+      await fetch(' https://glacial-woodland-21756.herokuapp.com/giphy/v1/gifs'+this.state.urlChange, {
         method: 'PUT',
         headers: {
           'Accept': 'application/json',

@@ -88,7 +88,7 @@ searchKey:''
 
         }
         console.log(gifObj["GifName"])
-        fetch('/giphy/v1/gifs', {
+        fetch('https://glacial-woodland-21756.herokuapp.com/giphy/v1/gifs', {
           method: 'POST',
          //  method:'PUT',
          headers: {

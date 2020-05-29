@@ -19,7 +19,7 @@ gotopage:false
     // .then(response=> response.json())
 
     getApi=()=>{
-     fetch('/giphy/v1/login/authenticate', {
+     fetch(' https://glacial-woodland-21756.herokuapp.com/giphy/v1/login/authenticate', {
         method:'POST',
         headers: {
             'Accept': 'application/json',
