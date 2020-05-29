@@ -29,7 +29,7 @@ export default class RouterCollection extends Component {
              'Accept': 'application/json',
              'Content-Type': 'application/json'
            }
-           }).then(response=> response.json()) .then(data=>{
+           }) .then(res => res.json()) .then(data=>{
             this.setState({count:data})
            }).catch((err) => 
            console.log (err)
