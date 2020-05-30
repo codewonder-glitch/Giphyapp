@@ -79,6 +79,7 @@ searchKey:''
       
 
       saveImage=(e)=>{
+        alert("Gif saved in Bookmarks")
         console.log(this.props.searchKey)
         var gifObj={ }
          gifObj={
@@ -96,8 +97,9 @@ searchKey:''
            'Content-Type': 'application/json'
          },
          body: JSON.stringify( gifObj )
+         
        });
-       document.getElementById(e.target.id).disabled='true'
+      // document.getElementById(e.target.id).disabled='true'
       }
 render(){
 

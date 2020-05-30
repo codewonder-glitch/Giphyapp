@@ -10,10 +10,10 @@ export default class Bookmarks extends Component {
     constructor(props) {
         super(props);
         this.state={
-src:'',
-filePath:'',
-htmlArray:[],
-urlChange:''
+        src:'',
+        filePath:'',
+        htmlArray:[],
+        urlChange:''
         }
     }
     componentDidMount=()=>{
@@ -31,10 +31,10 @@ urlChange:''
            }).then(response=> response.json()) .then(data=>{
            
             console.log(data)
-            htmlArr= data.map(dt=>{
+            htmlArr= data.map((dt,i)=>{
 return(
 <div className="imageContainer">
-    <img src={dt.gifUrl}/>
+    <img id={dt.gifID} src={dt.gifUrl}/>
     <button value={dt.gifID} onClick={this.gifDelete}> Delete</button>
     <button value={dt.gifID} onClick={this.gifUpdate}> Update</button>
     </div>
@@ -49,7 +49,8 @@ return(
 
     gifDelete=async(e)=>{
         e.preventDefault()
-console.log(e.target.value)
+        alert("Gif Deleted")
+        console.log(e.target.value)
         await fetch(`${'https://cors-anywhere.herokuapp.com/'}https://glacial-woodland-21756.herokuapp.com/giphy/v1/gifs/`+e.target.value, {
             method: 'DELETE',
             headers: {
@@ -95,23 +96,35 @@ alert("Image Uploaded")
     }
 
     updateDb=async()=>{
+      document.getElementById(this.state.urlChange).src=this.state.filePath
       await fetch(`${'https://cors-anywhere.herokuapp.com/'}https://glacial-woodland-21756.herokuapp.com/giphy/v1/gifs/`+this.state.urlChange, {
         method: 'PUT',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body:JSON.stringify({gifUrl:this.state.filePath})
+        body:JSON.stringify({gifUrl:this.state.filePath})      }  )
+        .then(response => response.json())
+        .then((data)=>{
+
+    
+       
+        })
+        
+        
+        
+     
 
 
-        }  )
-        this.getApi()
+   
+       // this.getApi()
     
   }
   //https://coursework.vschool.io/deploying-with-surge/
   closeModal=(e)=>{
     e.preventDefault()
     document.getElementsByClassName('modal')[0].style.display='none';
+   console.log(document.getElementsByClassName("modal")[0].style.display)
   }
 
     render(){
@@ -120,12 +133,12 @@ alert("Image Uploaded")
           <div className="Container">
            <div className="GridContainer">
 
-{this.state.htmlArray}
+          {this.state.htmlArray}
            </div> 
            <div className="modal">
            <form onSubmit={this._handleSubmit}>
              <h1>Please select file to update image</h1>
-                     <input id="url" type="text" onChange={this.handleImageChange} />
+                     <input className="url" placeholder="url" type="text" onChange={this.handleImageChange} />
                      <button className="modalbtn" type="submit" onClick={this.handleSubmit}>Upload Image</button>
                      <button className="closebtn" type="submit" onClick={this.closeModal}>X</button>
                    </form>

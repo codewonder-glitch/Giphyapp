@@ -23,14 +23,16 @@ export default class RouterCollection extends Component {
 
     getApi=async()=> {
         var htmlArr=[]
-        await fetch(`${'https://cors-anywhere.herokuapp.com/'}'https://glacial-woodland-21756.herokuapp.com/giphy/v1/visitor/count`, {
+        await fetch(`${'https://cors-anywhere.herokuapp.com/'}https://glacial-woodland-21756.herokuapp.com/giphy/v1/visitor/count`, {
             method:'GET',
            headers: {
              'Accept': 'application/json',
              'Content-Type': 'application/json'
            }
-           }) .then(res => res.json()) .then(data=>{
-            this.setState({count:data})
+           }) .then((res) =>{return res.json()})
+           .then((data)=>{
+               console.log(data)
+            this.setState({count:data.count})
            }).catch((err) => 
            console.log (err)
            )
@@ -64,7 +66,7 @@ export default class RouterCollection extends Component {
    </div>
    
    <div className="searchdiv">
-       <input type="text" placeholder='Please write here' onChange={this.handleChange}></input>
+       <input type="text" placeholder='Search' onChange={this.handleChange}></input>
    <Link to="/Search" >  <button type="submit" onClick={(e)=>this.setState({searchKey:this.state.srch})}>Search</button ></Link>
   
    </div>
@@ -87,19 +89,6 @@ export default class RouterCollection extends Component {
     }
 }
 
-// const Entertainment=(props)=>{
-//     // switch (props.name){
-//     // case Entertainment:
-    
-    
-//     return(
-//     <div>
-//       {props.data}
-//     </div>
-    
-//     )
-    
-    
-//     }
+
     
     
